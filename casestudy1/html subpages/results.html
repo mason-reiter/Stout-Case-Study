@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Results and Analysis</h1>
+            <p><a href="../index.html"><b>Back to main page</b></a></p>
+        <h2>Model Accuracy and Error</h2>
+        <h3>Model 1: Linear Regression</h3>
+            <p>After running a linear regression algorithm on the model, here's what I got for the coefficients:</p>
+            <p style="width: 750px">[ 3.03366837e-05, -1.10408271e-02,  5.02931914e-03,  2.81778107e-01,
+                -1.45356305e-06, -5.63404400e-01,  2.75768184e-02, -2.92418292e-06,
+                4.30769183e-01,  8.80534996e-02,  4.50868009e-01, -5.28780948e-03,
+                3.32207956e-03,  1.71239860e-01, -2.41193145e-02,  6.95146617e-02,
+                -1.92515569e-06,  8.43403181e-06,  6.38795564e-01,  5.88824515e-02,
+                4.28525781e-04,  4.92720383e-06, -1.08710268e-02,  2.02425699e-01,
+                -4.13896185e-03, -1.20926887e-01,  1.23952804e-01, -4.34814358e-05,
+                -2.95677315e-02, -9.62905820e-02,  3.06106100e-01, -2.44778563e-01,
+                -1.86914667e-02, -1.38695411e-02,  7.27519925e-02, -7.52444099e-02,
+                -3.85250789e-01,  1.39209712e-05,  1.67127192e-01]</p>
+            <p style="width: 750px">This may not mean much to the average reader, so let me say that the mean squared error for this algorithm was <b>16.60</b>.  This
+                means that the average difference between the predicted and actual interest rate was about <b>4.07</b>.  One doesn't need any visualizations to know that
+                this isn't a very good prediction model.  With a maximum interest rate of just over 30 percent, this means that the predicted interest rate for any given
+                input would be off by 4.07 percentage points on average!  Clearly, linear regression is not the way to go in this scenario.</p>
+            <img src="../images/results1.PNG" width="500">
+            <p style="width: 750px">As seen in this graph, the linear regression got the basic shape of most variables correct but completely broke down when it came
+                to point-to-point accuracy.  Furthermore, data points with larger values tend to have greater differences between actual and predicted interest rates.</p>
+        <h3>Model 2: Neural Net</h3>
+            <p style="width: 750px">I attempted to make a neural net using my current knowledge in MIT's Machine Learning class, but we've only been doing theoretical
+                machine learning algorithms and thus I didn't have time to make one using Numpy.  I sincerely apologize for not having a second algorithm ready.</p>
+        <h2>Proposed Enhancements</h2>
+            <ul class="nav", style="width: 750px">
+                <li>Currently, the machine learning model I used goes through the data without randomizing its order.  If I randomized the order in which I went through
+                the data as well as the starting weights, I should be able to improve the accuracy of the model.</li>
+                <li>Even though there were 10000 data points, there were still many variables that had little to no useful data.  As a result, perhaps we'd get more
+                accurate results if we just added more input data.</li>
+                <li>If I had more time (and actually managed to make a functioning neural net), I'd vary the number of nodes and layers in the neural net.
+                    There's a delicate balance between having too little data to accurately find weights for everything and not using your data enough, so
+                    finding the perfect number of each would definitely make the proposed neural net more accurate.</li>
+            </ul>
+        <h2>Assumptions</h2>
+            <ul class="nav", style="width: 750px">
+                <li><b>These loans were generally representative of all data on Lending Club:</b>  One can see by issue_month alone that these were only drawn
+                    from a specific three-month period of time in 2018, after which any number of changes to Lending Club's interest rate formula could have been made.</li>
+                <li><b>These loans were representative of all proposed loan offers:</b>  In reality, these are only accepted loans. It could entirely be the case that
+                    Lending Club's interest rate formula is out of whack, in which case many offers are ridiculous and just get rejected by the potential borrower.</li>
+                <li><b>There are no hidden variables that weren't included in the data set:</b>  If Lending Club has special deals for friends of the company, or the
+                    company provides discounts for any reason not disclosed in the data set, there's no way for my models to account for that.</li>
+            </ul>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+body {
+    margin-top: 15px;
+    margin-left: 20px;
+    font-family: Calibri, Verdana, Helvetica
+}
+p {
+    margin-left: 10px;
+    font-weight: normal;
+    align: right;
+}
+a {
+    text-decoration: none
+}
+th {
+    vertical-align: top;
+    width: 500;
+    padding: 35px
+}

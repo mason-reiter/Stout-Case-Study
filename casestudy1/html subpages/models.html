@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Feature Set and Algorithms</h1>
+        <div id="content">
+            <p><a href="../index.html"><b>Back to main page</b></a></p>
+        <h2>Feature Set</h2>
+            <p style="width:750px;">For the feature set that I used, there were a few considerations to make as noted in the <a href="graphs.html">Visualizations</a> section.
+                Some variables, like paid_total, provided information that someone trying to determine an interest rate wouldn't have.  Others, like sub_grade, were
+                too close to just outright stating the interest rate.  Still others, like current_accounts_delinq, provided so little information that including
+                them would pointlessly bloat the machine learning algorithm.  Finally, many variables needed to make small changes to their data in order to properly
+                fit in a feature set.</p>
+            <p>Here's a list of changes made from the original data set to the feature set:</p>
+            <ul class="nav", style="width: 750px">
+                <li><b>Removed from set:</b> installment, grade, sub_grade, issue_month, loan_status, initial_listing_status, disbursement_method,
+                    balance, paid_total, paid_principal, paid_interest, paid_late_fees</li>
+                <li><b>Removed for having too little information:</b> current_accounts_delinq, num_accounts_30d_past_due</li>
+                <li><b>Changed to integer values:</b> emp_title, state, homeownership, verified_income, verification_income_joint, loan_purpose, application_type</li>
+                <li><b>Changed NA/blank spaces to appropriate values:</b>emp_title, verification_income_joint, emp_length, annual_income, annual_income_joint, debt_to_income_joint, months_since_last_delinq,
+                    months_since_90d_late, months_since_last_credit_inquiry, num_accounts_120d_past_due</li>
+            </ul>
+        <h2>Algorithms</h2>
+            <p style="width:750px;">For the first algorithm, I decided to use the relatively simple linear regression algorithm.  Since every input variable and the output
+                in my feature set was a number, a linear regression made some sense.  It may lack the "intelligence" of a more advanced learning algorithm, but the low
+                amount of processing power required to generate and use the regression could potentially offset the algorithm's relative lack of precision.</p>
+            <p style="width:750px;">For the second algorithm, I decided to use a neural network with 2 hidden layers.  One of the downsides of a
+                linear regression in this case is that many variables aren't particularly well defined by linear relationships.  In addition, the importance of many variables
+                strongly depends on others.  Take income_joint and application_type, for example - if the loan applicant isn't taking a joint loan, their joint income should
+                play little to no role in their final interest rate.  With a neural network, I'd be able to remedy these issues more easily than with the linear regression.</p>
+            <p>More in-depth discussion and analysis of the algorithms' results can be found <a href="results.html"><b>here</b>.</a></p>
+        </div>
+    </body>
+</html>

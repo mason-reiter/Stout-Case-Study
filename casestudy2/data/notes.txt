@@ -1,0 +1,17 @@
+TODO: create a few more graphs, write short analysis of each one, then upload to Github
+
+all I have to do now is:
+-Generate some interesting, unique ;) graphs
+-Convert this data to an HTML site
+***REMEMBER***
+You can stretch and zoom on Matplotlib graphs to make whatever rectagnle-esque shape you want
+
+graph1: x=Net revenue at a given year (rounded to nearest integer), y=Number of people with that net revenue at the given year
+        pink = 2015, blue = 2016, green = 2017
+        Range and distribution of net revenues seems relatively unchanged, but number of customers at each net revenue increases at the same rate
+        No net revenues over 250 for any year seems weird, if I knew what kind of product we were selling I'd try to analyze why nobody's buying more
+
+other graph ideas:
+        -Average net revenue of lost/kept/new customers
+        -Ratio of lost/kept/new customers per year
+        -Does number of consonants in email correlate to anything????

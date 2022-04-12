@@ -1,0 +1,57 @@
+TODO: Actually make the algorithms, detail results, and add the number of layers I used in my neural network to models.  Also upload to Github
+
+Results visualization ideas:
+        -Make a few graphs
+        -Mean squared error for both algorithms (and explanation for what it means)
+
+Proposed enhancement ideas:
+        -Current model goes through data as presented, perhaps randomizing order of table would be beneficial
+        -Just add more data!  It's not a very original idea, but it's true.  As noted before, even after 10000 loans there are still variables that don't add any information
+        -If I had more time, I'd vary the number of layers in the neural net.  More layers usually means more accurate results, but also more necessary data
+        -Assumptions I made:
+            -These loans were generally representative of all data on Lending Club.  One can see by issue_month alone that these were only drawn from a three-month
+             period of time, after which any number of changes to Lending Club's interest rate formula could have been made
+            -These loans were representative of all proposed loan offers.  In reality, these are only accepted loans. It could entirely be the case that Lending Club's
+             interest rate formula is out of whack, in which case many offers are ridiculous and just get rejected by the potential borrower
+            -There are no hidden variables that weren't included in the data set.  If Lending Club has special deals for friends of the company, or the company provides
+             discounts for any reason not disclosed in the data set, there's no way for my models to account for that.
+
+
+10,000 observations on 55 variables
+
+emp_title: Job title (may not have one)
+emp_length: Number of years on the job, rounded down or 10 if greater than 10 (or NA if no job)
+state: 2-letter state code
+home_ownership: Ownership status of applicant's residence (MORTGAGE, OWN, RENT)
+annual_income: Annual income (number)
+verified_income: Verified, Source Verified, Not Verified
+debt_to_income: Debt-to-income ratio
+annual_income_joint: Annual income of the two parties applying or NA
+verification_income_joint: Same as verified_income, with joint
+debt_to_income_joint: Debt-to-income ratio for joint parties
+delinq_2y: Delinquencies on lines of credit in past 2 years
+and a lot of other stuff
+
+833 blank job titles is quite a lot
+
+Ideas for visualizations (need 5 minimum):
+        -Income Verification Status vs Average Interest Rate: Data that holds some meaning, but clearly not enough to accurately determine interest rate by itself
+            Also interesting to note that average interest rate increases for verified income - clearly we must rely on more than this data to get an accurate algorithm
+        -Interest Rate vs Subgrade: Example of data that shouldn't be shown to algorithm - finding the subgrade is almost equivalent to finding the interest rate
+        -Number of Current Delinquent Accounts: The fact that literally one person has a delinquent account (and an interest rate of 16.02 - about average) means that the data is near useless
+        -Interest Rate vs Joint Annual Income: There's a very weak inverse correlation between the two, it's up to the algorithm creator to determine if the information is valuable enough to include in the algorithm
+            Personally, I'd still include it since there is an important distinction between individual and joint loan applications when it comes to final interest rates, depending on the person applying for the loan
+        -Loan purpose vs Interest Rate: Similar to Income Verification Status, though results are more intuitive (higher-risk purposes have higher income rates on average)
+        -Graph 6 can be made if you want, the width of graph 5 is enough such that you can put it at the bottom of a 2-wide table and it'll look fine\
+
+        -You have 55 variables, you can make a whole lot of correlations (but try to relate them to the algorithm, e.g. interest_rate)
+        -Also make graphs denoting the importance/lack thereof of certain difficult variables to implement in the algorithm
+
+Ideas for algorithms:
+First, make super simple linear regression
+    Drawbacks: Have to make compromises on many columns, and some just have to be omitted
+Second, use some standard Python machine learning package
+
+For data cleaning:
+        -Some data should not be known to the machine learning algorithm, e.g. loan_status, grade and sub-grade, loan_status, and more.
+            -If
